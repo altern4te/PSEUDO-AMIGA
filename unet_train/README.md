@@ -15,7 +15,7 @@ pip install -r requirements.txt
 Two directories of same-sized images, matched by filename:
 
 ```
-data/composites/frame_0001.png   <- 3-channel GF-NIRNDVI composite
+data/GF-NIRNDVI/frame_0001.png   <- 3-channel GF-NIRNDVI composite
 data/masks/frame_0001.png        <- RGB colour-coded mask, same frame
 ```
 
