@@ -1,0 +1,35 @@
+data:
+  #composites_dir: "unet_dataset\\images"   # GF-NIRNDVI composite images (3-channel PNG/JPG)
+  #masks_dir: "unet_dataset\\masks"             # RGB color-coded masks from the SAM2 labeling tool
+  root_dir: "C:/Users/nate_/Desktop/plant data"
+  color_map: color_map.json
+  val_fraction: 0.15
+  split_seed: 42
+  group_by_sequence: true
+  sequence_regex: null                # e.g. '^(.*?)_\d+$'; null uses the built-in default heuristic
+
+model:
+  in_channels: 3        # num_classes is derived automatically from color_map.json, not set here
+  base_channels: 64      # halve to 32 if you're memory-constrained; doubles params/activations per step up
+  bilinear: true          # bilinear upsampling uses less memory than transposed conv -- good for laptop GPUs
+
+train:
+  epochs: 55
+  batch_size: 8
+  image_size: 512          # must be divisible by 16 (4-level U-Net); lower this first if you hit OOM
+  lr: 0.0003
+  weight_decay: 0.0001
+  num_workers: 4
+  seed: 42
+  loss: ce_dice
+  use_class_weights: true          # inverse-frequency weighting -- helps a lot if weed pixels are rare
+  random_resized_crop: true
+  photometric_augment: false       # off by default -- see augment.py docstring re: NDVI-derived channels
+  amp: true
+  amp_dtype: bfloat16               # bf16 avoids the float16 autocast issues seen on newer GPU generations
+  early_stopping_patience: 20
+
+checkpoint:
+  out_dir: "checkpoints"
+  save_every: 10
+  resume: null            # path to a checkpoint .pt to resume from, or null to start fresh

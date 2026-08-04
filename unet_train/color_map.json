@@ -1,0 +1,28 @@
+{
+  "classes": [
+    {
+      "name": "soil",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "crop",
+      "color": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "weed",
+      "color": [
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}
