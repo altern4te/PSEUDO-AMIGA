@@ -19,12 +19,6 @@ data/composites/frame_0001.png   <- 3-channel GF-NIRNDVI composite
 data/masks/frame_0001.png        <- RGB colour-coded mask, same frame
 ```
 
-Filenames don't have to be byte-identical -- `build_file_pairs` in
-`dataset.py` also strips common suffixes like `_composite`/`_gfnirndvi` or
-`_mask`/`_seg` before matching, so `frame_0001_composite.png` and
-`frame_0001_mask.png` pair up fine. Anything that still doesn't match prints
-a warning listing the unmatched files, rather than failing silently.
-
 ## Usage
 
 1. **Point `config.yaml` at your data**: set `data.composites_dir` and
