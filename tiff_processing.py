@@ -335,14 +335,37 @@ def build_rgb(bands):
     return np.dstack([r, g, b])  # HxWx3, standard R,G,B channel order
  
  
-def compute_ndvi(nir, red):
+def compute_ndvi(nir, red): # Measuring reflected light to determine plant stress / health
     nir = nir.astype(np.float32)
     red = red.astype(np.float32)
     denom = nir + red
     denom = np.where(denom == 0, 1e-6, denom)
     ndvi = (nir - red) / denom
     return np.clip(ndvi, -1.0, 1.0)
- 
+
+def compute_ndre(nir, rededge): # Measuring chlorophyll levels, plant stress, and nitrogen status in crops
+    nir = nir.astype(np.float32)
+    rededge = rededge.astype(np.float32)
+    denom = nir + rededge
+    denom = np.where(denom == 0, 1e-6, denom)
+    ndre = (nir - rededge) / denom
+    return np.clip(ndre, -1.0, 1.0)
+
+def compute_gndvi(nir, green): # Measuring plant health, chlorophyll content, and water / nitrogen uptake
+    nir = nir.astype(np.float32)
+    green = green.astype(np.float32)
+    denom = nir + green
+    denom = np.where(denom == 0, 1e-6, denom)
+    gndvi = (nir - green) / denom
+    return np.clip(gndvi, -1.0, 1.0) 
+
+def compute_osavi(nir, red): #Measuring canopy density and plant health
+    nir = nir.astype(np.float32)
+    red = red.astype(np.float32)
+    denom = nir + red + 0.16
+    denom = np.where(denom == 0, 1e-6, denom)
+    osavi = (nir - red) / denom
+    return np.clip(osavi, -1.0, 1.0)
  
 def bilateral_filter01(band01, d=9, sigma_color=0.1, sigma_space=9):
     """Edge-preserving smoothing on a float32 [0,1] single-channel band."""
