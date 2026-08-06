@@ -10,18 +10,9 @@ using the masks produced by SAM2 labeling tool as ground truth.
 pip install -r requirements.txt
 ```
 
-## Data layout this expects
-
-Two directories of same-sized images, matched by filename:
-
-```
-data/GF-NIRNDVI/frame_0001.png   <- 3-channel GF-NIRNDVI composite
-data/masks/frame_0001.png        <- RGB colour-coded mask, same frame
-```
-
 ## Usage
 
-1. **Point `config.yaml` at your data**: set `data.composites_dir` and
+1. **Point `config.yaml` at data**: set `data.composites_dir` and
    `data.masks_dir`. (`num_classes` is derived automatically from
    `color_map.json` there's nothing to keep in sync manually.)
 2. **Train**:
