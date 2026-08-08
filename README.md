@@ -49,7 +49,15 @@ pip install -r requirements.txt
 
 ## Training / Prediction
 
-   There is a separate readme in unet_train for this section that goes more in depth as it is more complicated to run.
+   There is a separate readme in unet_train for this section that goes more in depth as it is more complicated to run. I recommend using the GF-NIRNDVI image composite based on my own experimenting, below is a comparison between it and RGB images from the evaluation portion of the model. CRF may also improve the detection but my experiments were to confirm the merit of multispectral images in general, more on that can be found [here](https://doi.org/10.1016/j.compag.2023.107956).
+
+
+| Image Composite | RGB | GF-NIRNDVI | 
+| :----- | :-----: | :-----: |
+| Best Soil IoU | 99.66% | 99.71% |
+| Best Crop IoU | 94.67% | 95.03% |
+| Best Weed IoU | 73.13% | 77.08% |
+| Best Mean IoU | 89.03% | 90.32% |
 
 <img width="475" height="380" alt="image" src="https://github.com/user-attachments/assets/1d98e8e7-a986-4277-9dcb-a9bdd9b23aad" />
 
