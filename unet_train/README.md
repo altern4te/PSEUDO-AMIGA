@@ -4,12 +4,6 @@ Trains a U-Net that takes the 3-channel GF-NIRNDVI composite (from
 `tiff_processing.py`) as input and predicts a per-pixel class map,
 using the masks produced by SAM2 labeling tool as ground truth.
 
-## Setup
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Usage
 
 1. **Point `config.yaml` at data**: set `data.composites_dir` and
