@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
    The files are saved on the SD card inserted into the MicaSense camera, and this program expects you to take out and retrieve them manually. The web API does have functionality to access them remotely but this is not implemented in the capture program, please refer to the API [here](https://micasense.github.io/rededge-api/api/http.html#files) if you wish to alter it (you definitely should I was just short on time and had more to code).
 
-   IMPORTANT: Make sure to put the fan on the EXHAUST blowing outward, if you printed the mount I designed (USE PETG NOT PLA AVAILABLE IN LAB I AM BEGGING YOU IT WILL BREAK) just use the zip ties on the little holes in the corner to keep it in place. Additionally you may want to add a cover for the RJ45 breakout board / 2.1mm connection. Feel free, I didnt get to that point of testing so I never designed it but the holes on the connection side of the mount were intended for a cover to be added and zip tied on. 
+   IMPORTANT: Make sure to put the fan on the EXHAUST blowing outward, if you printed the mount I designed (USE PETG NOT PLA AVAILABLE IN LAB I AM BEGGING YOU IT WILL BREAK) just use the zip ties on the little holes in the corner to keep it in place. Additionally you may want to add a cover for the RJ45 breakout board / 2.1mm connection, feel free. I didnt get to that point of testing so I never designed it but the holes on the connection side of the mount were intended for a cover to be added and zip tied on. 
 
 ## Image Processing
 
