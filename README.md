@@ -8,6 +8,9 @@ pip install -r requirements.txt
 
 ## Capture
 
+   <img width="574" height="509" alt="image" src="https://github.com/user-attachments/assets/d20a06ee-16bf-4257-bc78-d8f6fa963459" />
+
+
    For capturing images using the MicaSense Rededge-P, first connect to the built in web server via WiFi or ethernet (IP will vary depending, refer to capture.py and alter it for your use either in the file or in the function call) and run ```python ./capture.py``` to start. Position the reflective panel included with the camera 1 meter below in similar lighting to the capture area, and press enter. Then press enter again once you are ready to survey.
 
    The default survey time is 5 minutes, this may be altered as well. For implementation into the robot I would recommend making a distance based capture system rather than a timer based one to get a clearer picture of the field, just keep in mind the camera can only handle about 3 pictures per second so do not run the robot / person holding a stick too fast.
@@ -16,7 +19,12 @@ pip install -r requirements.txt
 
    IMPORTANT: Make sure to put the fan on the EXHAUST blowing outward, if you printed the mount I designed (USE PETG NOT PLA AVAILABLE IN LAB I AM BEGGING YOU IT WILL BREAK) just use the zip ties on the little holes in the corner to keep it in place. Additionally you may want to add a cover for the RJ45 breakout board / 2.1mm connection, feel free. I didnt get to that point of testing so I never designed it but the holes on the connection side of the mount were intended for a cover to be added and zip tied on. 
 
+
+
 ## Image Processing
+
+<img width="425" height="340" alt="image" src="https://github.com/user-attachments/assets/5cb10204-033c-44b0-82fc-a60345b08660" />
+
 
    Make sure to point the input and output dirs in the tiff_processing file to wherever you send your MicaSense images and wherever you want to predict / hand segment for training. Ideally you would make your own script combining the image processing and prediction steps if you wanted to streamline it, I imagine if you simply create the processed image without saving it, run it through the model, and then just save the mask and pull up the actual image if called upon (which if you're using a purely GPS based UI with a heat map displaying weighted crop / weed ratios you probably don't need to) you will save a lot of time in processing, I just made it this way to create a dataset rather than a tool.
    
@@ -25,6 +33,9 @@ pip install -r requirements.txt
    IMPORTANT: Make sure to set a reference image, it makes the process much faster and as long as your height is consistent with your chosen image it will work very well.
 
 ## Segmentation
+
+<img width="523" height="474" alt="image" src="https://github.com/user-attachments/assets/b0299ea2-1695-4865-ac37-0de2d633351a" />
+
 
    Sam V2 is required to run the segmentation tool, make sure [the repo](https://github.com/facebookresearch/sam2) is also installed and is pointed to correctly. I recommend following [this tutorial](https://www.youtube.com/watch?v=32MDGZUV0-M) to make sure you have everything installed, there are some additional installs you have to make to get the model to work.
 
@@ -35,4 +46,6 @@ pip install -r requirements.txt
 ## Training / Prediction
 
    There is a separate readme in unet_train for this section that goes more in depth as it is more complicated to run.
+
+<img width="475" height="380" alt="image" src="https://github.com/user-attachments/assets/1d98e8e7-a986-4277-9dcb-a9bdd9b23aad" />
 
