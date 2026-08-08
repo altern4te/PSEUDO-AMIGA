@@ -6,6 +6,10 @@
 pip install -r requirements.txt
 ```
 
+## Pipeline
+<img width="827" height="1032" alt="PSEUDO-AMIGA final2 drawio" src="https://github.com/user-attachments/assets/ae250ba3-ba42-4cbf-8da8-fa15b8fc231b" />
+
+
 ## Capture
 
    <img width="574" height="509" alt="image" src="https://github.com/user-attachments/assets/d20a06ee-16bf-4257-bc78-d8f6fa963459" />
