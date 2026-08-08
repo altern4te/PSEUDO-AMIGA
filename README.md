@@ -1,4 +1,10 @@
 
+## Setup
+
+```bash
+pip install -r requirements.txt
+```
+
 1. Capture
 
    For capturing images using the MicaSense Rededge-P, first connect to the built in web server via WiFi or ethernet (IP will vary depending, refer to capture.py and alter it for your use either in the file or in the function call) and run ```python ./capture.py``` to start. Position the reflective panel included with the camera 1 meter below in similar lighting to the capture area, and press enter. Then press enter again once you are ready to survey.
