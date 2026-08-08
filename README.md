@@ -5,7 +5,7 @@
 pip install -r requirements.txt
 ```
 
-1. Capture
+## Capture
 
    For capturing images using the MicaSense Rededge-P, first connect to the built in web server via WiFi or ethernet (IP will vary depending, refer to capture.py and alter it for your use either in the file or in the function call) and run ```python ./capture.py``` to start. Position the reflective panel included with the camera 1 meter below in similar lighting to the capture area, and press enter. Then press enter again once you are ready to survey.
 
@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
    IMPORTANT: Make sure to put the fan on the EXHAUST blowing outward, if you printed the mount I designed (USE PETG NOT PLA AVAILABLE IN LAB I AM BEGGING YOU IT WILL BREAK) just use the zip ties on the little holes in the corner to keep it in place. Additionally you may want to add a cover for the RJ45 breakout board / 2.1mm connection. Feel free, I didnt get to that point of testing so I never designed it but the holes on the connection side of the mount were intended for a cover to be added and zip tied on. 
 
-2. Image Processing
+## Image Processing
 
    Make sure to point the input and output dirs in the tiff_processing file to wherever you send your MicaSense images and wherever you want to predict / hand segment for training. Ideally you would make your own script combining the image processing and prediction steps if you wanted to streamline it, I imagine if you simply create the processed image without saving it, run it through the model, and then just save the mask and pull up the actual image if called upon (which if you're using a purely GPS based UI with a heat map displaying weighted crop / weed ratios you probably don't need to) you will save a lot of time in processing, I just made it this way to create a dataset rather than a tool.
    
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
    IMPORTANT: Make sure to set a reference image, it makes the process much faster and as long as your height is consistent with your chosen image it will work very well.
 
-3. Segmentation
+## Segmentation
 
    Sam V2 is required to run the segmentation tool, make sure [the repo](https://github.com/facebookresearch/sam2) is also installed and is pointed to correctly. I recommend following [this tutorial](https://www.youtube.com/watch?v=32MDGZUV0-M) to make sure you have everything installed, there are some additional installs you have to make to get the model to work.
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
    The tool is really easy to use and works best if you seed a lot of points at the start with a good first image pick. Play around and do what feels right, and feel free to add more classes if desired, it is designed in a way that should allow you to easily slot new ones in if you wanted to say classify grass separately or classify individual weed types. This may affect model performance, but experimentation is good.
 
-4. Training / Prediction
+## Training / Prediction
 
    There is a separate readme in unet_train for this section that goes more in depth as it is more complicated to run.
 
